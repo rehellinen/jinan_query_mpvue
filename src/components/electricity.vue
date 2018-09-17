@@ -1,7 +1,8 @@
 <template lang="pug">
   div.electricity-container.card
-    img(src="__IMAGE__/theme/electricity.jpg")
+    img.background-img(src="__IMAGE__/theme/electricity.jpg")
     div.title
+      img(src="__IMAGE__/icon/elec.png")
       p 我的电量
     div.detail
       div
@@ -31,7 +32,7 @@ export default {
     flex-direction: column
     align-items: center
     position: relative
-    img
+    .background-img
       width: 100%
       height: 100%
       position: absolute
@@ -39,16 +40,20 @@ export default {
       z-index: 0
   .title
     z-index: 10
-    height: 70rpx
+    height: 60rpx
     display: flex
     align-items: center
     p
       font-size: $normal-font-size
+    img
+      width: 40rpx
+      height: 40rpx
+      margin-right: 20rpx
   .detail
     z-index: 10
     display: flex
     width: 100%
-    padding: 15rpx 0
+    padding: 10rpx 0 15rpx 0
     div:first-child
       border-right: 1px solid $nav-color
     div
