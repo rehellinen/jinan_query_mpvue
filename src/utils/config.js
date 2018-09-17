@@ -1,22 +1,10 @@
-module.exports = {
+const config = {
   // 配置1：URL基地址
   restUrl: 'http://localhost/jinan_query/public/api/v1/',
   // restUrl: 'https://20298479.rehellinen.cn/fleamarket/public/api/v2/',
 
   // 配置2：加载中图标自动隐藏时间
   loadingHiddenTime: 1500,
-
-  // 配置3：关于全局字符串替换
-  replace: {
-    static: {
-      origin: '__STATIC__',
-      replacement: '/static'
-    },
-    image: {
-      origin: '__IMAGE__',
-      replacement: '/static/images'
-    }
-  },
 
   // 配置4：关于支付状态
   payEnum: {
@@ -75,3 +63,5 @@ module.exports = {
     BACKGROUND_COLOR: '#f9f9f9'
   }
 }
+
+export {config}

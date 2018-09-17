@@ -3,10 +3,10 @@
     "pages/index/main"
   ],
   "window": {
-    "navigationBarTitleText": "查询",
+    "navigationBarTitleText": "暨先生",
     "navigationBarTextStyle": "#FFFFFF",
-    "navigationBarBackgroundColor": "#a9936e",
-    "backgroundColor": "#f9f9f9",
+    "navigationBarBackgroundColor": "#92a1be",
+    "backgroundColor": "#fdfdfd",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": false
   }

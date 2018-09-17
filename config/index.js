@@ -35,5 +35,16 @@ module.exports = {
     // In our experience, they generally work as expected,
     // just be aware of this issue when enabling this option.
     cssSourceMap: false
-  }
+  },
+  // 关于全局字符串替换
+  replace: {
+    static: {
+      origin: '__STATIC__',
+      replacement: '/static'
+    },
+    image: {
+      origin: '__IMAGE__',
+      replacement: '/static/images'
+    }
+  },
 }

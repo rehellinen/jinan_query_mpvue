@@ -1,9 +1,10 @@
-import {restUrl} from './config.js'
+import {config} from './config.js'
+const restUrl = config.restUrl
 
 class Token {
   constructor () {
     this.verifyUrl = restUrl + 'token/verify'
-    this.tokenUrl = restUrl + 'token/buyer'
+    this.tokenUrl = restUrl + 'token/user'
   }
 
   verify () {

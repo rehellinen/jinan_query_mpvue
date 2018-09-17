@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import App from './app'
-import conf from './utils/config'
+import {config} from './utils/config'
 
 Vue.config.productionTip = false
-Vue.prototype.$config = conf
+Vue.prototype.$config = config
 
 App.mpType = 'app'
 

@@ -4,9 +4,11 @@ var utils = require('./utils')
 var config = require('../config/index')
 var vueLoaderConfig = require('./vue-loader.conf')
 var MpvuePlugin = require('webpack-mpvue-asset-plugin')
+var StringReplace = require('string-replace-webpack-plugin')
 var glob = require('glob')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var relative = require('relative')
+var replace = config.replace
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -43,7 +45,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue': 'mpvue',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'sass': resolve('static/sass'),
+      'components': resolve('src/components')
     },
     symlinks: false,
     aliasFields: ['mpvue', 'weapp', 'browser'],
@@ -101,10 +105,30 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
+      },
+      {
+        test: /\.(js|vue)$/,
+        loader: StringReplace.replace({
+          replacements: [
+            {
+              pattern: new RegExp(replace.static.origin, 'g'),
+              replacement: function (nextLoaders, options, prevLoaders) {
+                return replace.static.replacement
+              }
+            },
+            {
+              pattern: new RegExp(replace.image.origin, 'g'),
+              replacement: function (nextLoaders, options, prevLoaders) {
+                return replace.image.replacement
+              }
+            }
+          ]
+        })
       }
     ]
   },
   plugins: [
+    new StringReplace(),
     new MpvuePlugin(),
     new CopyWebpackPlugin([{
       from: '**/*.json',
