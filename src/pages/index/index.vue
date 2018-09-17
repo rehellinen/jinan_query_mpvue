@@ -23,6 +23,7 @@ div.container
       p 个人资料
   // 卡片
   div.card-container
+    score
     electricity
     class
 </template>
@@ -30,11 +31,13 @@ div.container
 <script>
 import Electricity from 'components/electricity'
 import Class from 'components/class'
+import Score from 'components/score'
 
 export default {
   components: {
     Electricity,
-    Class
+    Class,
+    Score
   }
 }
 </script>

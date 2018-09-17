@@ -1,11 +1,15 @@
 <template lang="pug">
   div.electricity-container.card
-    img.background-img(src="__IMAGE__/theme/class.jpg")
-    title(title="最近的课" img="__IMAGE__/icon/class.png")
+    img.background-img(src="__IMAGE__/theme/score.jpg")
+    title(title="我的成绩" img="__IMAGE__/icon/score@card.png")
     div.detail
-      p.class 中国近代史
-      p.place 珠海校区实验楼C105
-    see-more(text="查 看 完 整 课 表")
+      div
+        p.comment GPA
+        p.value 4.2
+      div
+        p.comment 最近一门
+        p.value 马克思主义原理 99
+    see-more(text="我 的 成 绩 单")
 </template>
 
 <script>
@@ -37,13 +41,21 @@
   .detail
     z-index: 10
     display: flex
-    flex-direction: column
-    align-items: center
     width: 100%
-    padding: 10rpx 0 15rpx 0
-    .class
-      font-size: 32px
-    .place
-      font-size: 18px
+    padding: 20rpx 0
+    div:first-child
+      border-right: 1px solid $nav-color
+    div
+      width: 50%
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding: 15rpx 0
+    .value
+      font-size: $small-font-size
+      margin-top: 30rpx
+    .comment
+      font-size: $normal-font-size
+      font-weight: bold
       margin-top: 10rpx
 </style>

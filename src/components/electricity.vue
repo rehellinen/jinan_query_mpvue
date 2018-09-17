@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import SeeMore from './see-more'
-import Title from './title'
+import SeeMore from '../base/see-more'
+import Title from '../base/title'
 
 export default {
   components: {
@@ -42,7 +42,7 @@ export default {
     z-index: 10
     display: flex
     width: 100%
-    padding: 10rpx 0 15rpx 0
+    padding: 20rpx 0
     div:first-child
       border-right: 1px solid $nav-color
     div
@@ -50,6 +50,7 @@ export default {
       display: flex
       flex-direction: column
       align-items: center
+      padding: 15rpx 0
     .count
       font-size: 38px
     .comment
