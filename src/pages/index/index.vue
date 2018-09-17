@@ -10,7 +10,7 @@ div.container
   // 四项icon
   div.card.four-icon
     div
-      img(src="__IMAGE__/icon/English.png")
+      img(src="__IMAGE__/icon/english.png")
       p 四六级查询
     div
       img(src="__IMAGE__/icon/score.png")
@@ -24,13 +24,17 @@ div.container
   // 卡片
   div.card-container
     electricity
+    class
 </template>
 
 <script>
 import Electricity from 'components/electricity'
+import Class from 'components/class'
+
 export default {
   components: {
-    Electricity
+    Electricity,
+    Class
   }
 }
 </script>
@@ -59,10 +63,11 @@ export default {
     .thin
       font-size: $smaller-font-size
     .bold
-      font-size: $vast-font-size
+      font-size: 32px
       margin: 10rpx 0
   .four-icon
     height: 180rpx
+    padding-top: 10rpx
     display: flex
     align-items: center
     justify-content: space-around

@@ -28,11 +28,11 @@ export default {
     div
       border: 1px solid $nav-color
       border-radius: 20px
-      width: 200rpx
       color: $nav-color
       font-size: $smaller-font-size
       display: flex
       align-items: center
       justify-content: center
       height: 35rpx
+      padding: 0 40rpx
 </style>

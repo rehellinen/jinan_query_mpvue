@@ -27,9 +27,9 @@ export default {
     display: flex
     align-items: center
     p
-      font-size: $normal-font-size
+      font-size: $small-font-size
     img
-      width: 40rpx
-      height: 40rpx
+      width: 35rpx
+      height: 35rpx
       margin-right: 20rpx
 </style>

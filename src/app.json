@@ -6,7 +6,7 @@
     "navigationBarTitleText": "暨先生",
     "navigationBarTextStyle": "#FFFFFF",
     "navigationBarBackgroundColor": "#92a1be",
-    "backgroundColor": "#fdfdfd",
+    "backgroundColor": "#f9f9f9",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": false
   }

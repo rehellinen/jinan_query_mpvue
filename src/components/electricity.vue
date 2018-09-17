@@ -55,5 +55,4 @@ export default {
     .comment
       font-size: $small-font-size
       margin-top: 10rpx
-  .de
 </style>
