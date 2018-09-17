@@ -1,9 +1,7 @@
 <template lang="pug">
   div.electricity-container.card
     img.background-img(src="__IMAGE__/theme/electricity.jpg")
-    div.title
-      img(src="__IMAGE__/icon/elec.png")
-      p 我的电量
+    title(title="我的电量" img="__IMAGE__/icon/elec.png")
     div.detail
       div
         p.count 78
@@ -16,10 +14,12 @@
 
 <script>
 import SeeMore from './see-more'
+import Title from './title'
 
 export default {
   components: {
-    SeeMore
+    SeeMore,
+    Title
   }
 }
 </script>
@@ -38,17 +38,6 @@ export default {
       position: absolute
       top: 0
       z-index: 0
-  .title
-    z-index: 10
-    height: 60rpx
-    display: flex
-    align-items: center
-    p
-      font-size: $normal-font-size
-    img
-      width: 40rpx
-      height: 40rpx
-      margin-right: 20rpx
   .detail
     z-index: 10
     display: flex
