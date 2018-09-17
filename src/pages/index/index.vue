@@ -26,6 +26,10 @@ div.container
     score
     electricity
     class
+  div.add-container
+    div.icon-container
+      img(src="__IMAGE__/icon/add.png")
+    p 编辑卡片
 </template>
 
 <script>
@@ -85,5 +89,25 @@ export default {
     img
       width: 110rpx
       height: 110rpx
-  .card-container
+  .add-container
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-top: 20rpx
+    margin-bottom: 20rpx
+    .icon-container
+      display: flex
+      justify-content: center
+      align-items: center
+      width: 120rpx
+      height: 120rpx
+      background-color: white
+      border-radius: 50%
+      img
+        width: 35rpx
+        height: 35rpx
+    p
+      margin-top: 20rpx
+      font-size: $small-font-size
 </style>
