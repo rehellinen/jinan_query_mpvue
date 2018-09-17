@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/main"
+    "pages/index/main",
+    "pages/edit-card/main"
   ],
   "window": {
     "navigationBarTitleText": "暨先生",

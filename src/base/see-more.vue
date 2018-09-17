@@ -34,5 +34,5 @@ export default {
       align-items: center
       justify-content: center
       height: 35rpx
-      padding: 0 40rpx
+      padding: 2rpx 40rpx
 </style>

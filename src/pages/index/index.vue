@@ -26,7 +26,7 @@ div.container
     score
     electricity
     class
-  div.add-container
+  div.add-container(@click="toEditCard")
     div.icon-container
       img(src="__IMAGE__/icon/add.png")
     p 编辑卡片
@@ -38,6 +38,13 @@ import Class from 'components/class'
 import Score from 'components/score'
 
 export default {
+  methods: {
+    toEditCard () {
+      wx.navigateTo({
+        url: '../edit-card/main'
+      })
+    }
+  },
   components: {
     Electricity,
     Class,
