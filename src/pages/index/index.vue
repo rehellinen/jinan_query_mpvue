@@ -2,7 +2,7 @@
 div.container
   // 顶部饭卡余额
   div.top-info
-    img(src="__IMAGE__/top_image.jpg")
+    img(src="__IMAGE__/theme/top_image.jpg")
     div.card-info
       p.thin 饭卡余额
       p.bold 208
@@ -10,24 +10,29 @@ div.container
   // 四项icon
   div.card.four-icon
     div
-      img(src="__IMAGE__/English.png")
+      img(src="__IMAGE__/icon/English.png")
       p 四六级查询
     div
-      img(src="__IMAGE__/score.png")
+      img(src="__IMAGE__/icon/score.png")
       p 成绩查询
     div
-      img(src="__IMAGE__/car.png")
+      img(src="__IMAGE__/icon/car.png")
       p 校车咨询
     div
-      img(src="__IMAGE__/profile.png")
+      img(src="__IMAGE__/icon/profile.png")
       p 个人资料
   // 卡片
   div.card-container
-
+    electricity
 </template>
 
 <script>
-
+import Electricity from 'components/electricity'
+export default {
+  components: {
+    Electricity
+  }
+}
 </script>
 
 <style scoped lang="sass">

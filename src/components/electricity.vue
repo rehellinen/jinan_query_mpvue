@@ -1,12 +1,65 @@
 <template lang="pug">
-  div
+  div.electricity-container.card
+    img(src="__IMAGE__/theme/electricity.jpg")
+    div.title
+      p 我的电量
+    div.detail
+      div
+        p.count 78
+        p.comment 剩余电量
+      div
+        p.count 66
+        p.comment 最近三天用电
+    see-more
 </template>
 
 <script>
+import SeeMore from './see-more'
+
 export default {
+  components: {
+    SeeMore
+  }
 }
 </script>
 
 <style scoped lang="sass" rel="stylesheet/sass">
+  @import "~sass/base"
 
+  .electricity-container
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: relative
+    img
+      width: 100%
+      height: 100%
+      position: absolute
+      top: 0
+      z-index: 0
+  .title
+    z-index: 10
+    height: 70rpx
+    display: flex
+    align-items: center
+    p
+      font-size: $normal-font-size
+  .detail
+    z-index: 10
+    display: flex
+    width: 100%
+    padding: 15rpx 0
+    div:first-child
+      border-right: 1px solid $nav-color
+    div
+      width: 50%
+      display: flex
+      flex-direction: column
+      align-items: center
+    .count
+      font-size: 38px
+    .comment
+      font-size: $small-font-size
+      margin-top: 10rpx
+  .de
 </style>
