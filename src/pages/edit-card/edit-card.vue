@@ -1,23 +1,48 @@
 <template lang="pug">
 div.container.card-container
-  div.single
-    div.small-card
-      img.select(src="__IMAGE__/icon/delete.png")
-      p 电 费 查 询
-    div.img-container
-      img(src="__IMAGE__/icon/arrow@up.png")
-      img.down(src="__IMAGE__/icon/arrow@up.png")
-  div.single.small-card
-    img.select(src="__IMAGE__/icon/delete.png")
-    p 课程表查询
-    div
-      img(src="__IMAGE__/icon/arrow@up.png")
-      img.down(src="__IMAGE__/icon/arrow@up.png")
+  // 标题
+  div.title-container
+    p(@click="toIndex").cancel 取消
+    p.title 我的卡片
+    p.save 保存
+
+  // 展示中的卡片
+  div.show
+    div.small-title
+      p 已添加
+    div.single
+      div.small-card
+        img.select(src="__IMAGE__/icon/delete.png")
+        p 电 费 查 询
+      div.img-container
+        img(src="__IMAGE__/icon/arrow@up.png")
+        img.down(src="__IMAGE__/icon/arrow@up.png")
+    div.single
+      div.small-card
+        img.select(src="__IMAGE__/icon/delete.png")
+        p 电 费 查 询
+      div.img-container
+        img(src="__IMAGE__/icon/arrow@up.png")
+        img.down(src="__IMAGE__/icon/arrow@up.png")
+
+  // 未展示的卡片
+  div.no-show
+    div.small-title
+      p 待添加
+    div.single
+      div.small-card
+        p 电 费 查 询
+        img(src="__IMAGE__/icon/add@card.png")
 </template>
 
 <script>
 import {mapGetters} from 'vuex'
 export default {
+  methods: {
+    toIndex () {
+      wx.navigateBack()
+    }
+  },
   computed: {
     ...mapGetters([
       'cardState'
@@ -30,40 +55,100 @@ export default {
   @import "~sass/base"
   .card-container
     background-color: #ececec
-
-  .single
-    display: flex
+  .title-container
     height: 70rpx
+    background-color: white
+    display: flex
     align-items: center
-    .small-card
-      width: 620rpx
-      margin-left: $card-margin
-      border-radius: 8px
-      margin-top: 10rpx
-      background-color: white
-      overflow: hidden
+    position: fixed
+    width: 750rpx
+    .cancel
+      flex-basis: 15%
+      color: #9c9c9c
+      font-size: $smaller-font-size
       display: flex
-      height: 80rpx
-      align-items: center
-    img
-      width: 30rpx
-      height: 30rpx
-    .select
-      margin-left: 30rpx
-    p
-      font-size: $small-font-size
-      margin-left: 25rpx
-      color: #474d5d
-    .img-container
-      height: 100%
-      display: flex
-      align-items: center
+      justify-content: center
+    .title
       flex: 1
+      display: flex
+      justify-content: center
+      color: #1e1e1e
+      font-size: $small-font-size
+      font-weight: bold
+    .save
+      flex-basis: 15%
+      color: #ec647c
+      font-size: $smaller-font-size
+      display: flex
+      justify-content: center
+  .small-title
+    margin-top: 15rpx
+    margin-bottom: 5rpx
+    text-align: center
+    color: #848484
+    font-size: $smaller-font-size
+  .show
+    margin-top: 70rpx
+    .single
+      display: flex
+      height: 70rpx
+      align-items: center
+      margin-top: 10rpx
+      .small-card
+        width: 620rpx
+        margin-left: $card-margin
+        border-radius: 8px
+        margin-top: 10rpx
+        background-color: white
+        overflow: hidden
+        display: flex
+        height: 100%
+        align-items: center
       img
-        width: 35rpx
-        height: 35rpx
-        margin-left: 15rpx
-      .down
-        transform: rotate(180deg)
+        width: 30rpx
+        height: 30rpx
+      .select
+        margin-left: 30rpx
+      p
+        font-size: $small-font-size
+        margin-left: 25rpx
+        color: #474d5d
+      .img-container
+        height: 100%
+        display: flex
+        align-items: center
+        flex: 1
+        img
+          width: 37rpx
+          height: 37rpx
+          margin-left: 13rpx
+        .down
+          transform: rotate(180deg)
+  .no-show
+    margin-top: 30rpx
+    .single
+      display: flex
+      height: 70rpx
+      align-items: center
+      margin-top: 10rpx
+      .small-card
+        width: 710rpx
+        margin-left: $card-margin
+        border-radius: 8px
+        margin-top: 10rpx
+        background-color: white
+        overflow: hidden
+        display: flex
+        height: 100%
+        align-items: center
+        justify-content: space-between
+      p
+        margin-left: 30rpx
+        font-size: $small-font-size
+        color: #474d5d
+      img
+        width: 40rpx
+        height: 40rpx
+        margin-right: 30rpx
   .de
 </style>
