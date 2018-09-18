@@ -4,7 +4,13 @@ div.container
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
+  computed: {
+    ...mapGetters([
+      'cardState'
+    ])
+  }
 }
 </script>
 

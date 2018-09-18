@@ -5,7 +5,9 @@
  */
 
 const getters = {
-
+  cardState (state) {
+    return state.card
+  }
 }
 
 export {getters}
