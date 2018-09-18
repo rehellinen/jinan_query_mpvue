@@ -1,13 +1,14 @@
 <template lang="pug">
-div.container
-  div.single.card
-    img.select(src="__IMAGE__/icon/selected.png")
-    p 电费查询
-    div
+div.container.card-container
+  div.single
+    div.small-card
+      img.select(src="__IMAGE__/icon/delete.png")
+      p 电 费 查 询
+    div.img-container
       img(src="__IMAGE__/icon/arrow@up.png")
       img.down(src="__IMAGE__/icon/arrow@up.png")
-  div.single.card
-    img.select(src="__IMAGE__/icon/noSelected.png")
+  div.single.small-card
+    img.select(src="__IMAGE__/icon/delete.png")
     p 课程表查询
     div
       img(src="__IMAGE__/icon/arrow@up.png")
@@ -27,26 +28,42 @@ export default {
 
 <style scoped lang="sass">
   @import "~sass/base"
+  .card-container
+    background-color: #ececec
 
   .single
     display: flex
-    height: 100rpx
+    height: 70rpx
     align-items: center
-    img
-      width: 40rpx
-      height: 40rpx
-    .select
-      margin-left: 20rpx
-    p
-      font-size: $normal-font-size
-      margin-left: 40rpx
-      color: $pink
-    div
+    .small-card
+      width: 620rpx
+      margin-left: $card-margin
+      border-radius: 8px
+      margin-top: 10rpx
+      background-color: white
+      overflow: hidden
       display: flex
-      justify-content: flex-end
+      height: 80rpx
+      align-items: center
+    img
+      width: 30rpx
+      height: 30rpx
+    .select
+      margin-left: 30rpx
+    p
+      font-size: $small-font-size
+      margin-left: 25rpx
+      color: #474d5d
+    .img-container
+      height: 100%
+      display: flex
+      align-items: center
       flex: 1
+      img
+        width: 35rpx
+        height: 35rpx
+        margin-left: 15rpx
       .down
         transform: rotate(180deg)
-        margin: 0 20rpx
   .de
 </style>
