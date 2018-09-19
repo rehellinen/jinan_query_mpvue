@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/index/main"
+    "pages/index/main",
+    "pages/edit/main"
   ],
   "window": {
     "navigationBarTitleText": "暨先生",
     "navigationBarTextStyle": "#FFFFFF",
     "navigationBarBackgroundColor": "#92a1be",
-    "backgroundColor": "#f9f9f9",
+    "backgroundColor": "#f7f7f7",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": false
   }

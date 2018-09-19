@@ -34,12 +34,12 @@
 
 <script>
   import {mapGetters, mapActions} from 'vuex'
-  import {toast} from '../utils/utils'
+  import {toast} from '../../utils/utils'
 
   export default {
     methods: {
       toIndex () {
-        this.$emit('toIndex')
+        wx.navigateBack()
       },
       up (index) {
         if (index === 0) {
@@ -76,7 +76,8 @@
 <style scoped lang="sass">
   @import "~sass/base"
   .card-container
-    background-color: #ececec
+    background-color: #f4f4f4
+    width: 750rpx
   .title-container
     height: 70rpx
     background-color: white

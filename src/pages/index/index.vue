@@ -1,8 +1,5 @@
 <template lang="pug">
-div
-  div.edit-page(v-if="page !== 'index'")
-    edit(@toIndex="setPage('index')")
-  div.container(v-else)
+  div.container
     // 顶部饭卡余额
     div.top-info
       img(src="__IMAGE__/theme/top_image.jpg")
@@ -29,7 +26,7 @@ div
       score
       electricity
       class
-    div.add-container(@click="setPage('edit')")
+    div.add-container(@click="toEdit")
       div.icon-container
         img(src="__IMAGE__/icon/add.png")
       p 编辑卡片
@@ -39,24 +36,19 @@ div
 import Electricity from 'components/electricity'
 import Class from 'components/class'
 import Score from 'components/score'
-import Edit from 'components/edit'
 
 export default {
-  data () {
-    return {
-      page: 'index'
-    }
-  },
   methods: {
-    setPage (value) {
-      this.page = value
+    toEdit () {
+      wx.navigateTo({
+        url: '../edit/main'
+      })
     }
   },
   components: {
     Electricity,
     Class,
-    Score,
-    Edit
+    Score
   }
 }
 </script>
