@@ -1,78 +1,76 @@
 <template lang="pug">
-div.container.card-container
-  // 标题
-  div.title-container
-    p(@click="toIndex").cancel 取消
-    p.title 我的卡片
-    p.save 保存
+  div.container.card-container
+    // 标题
+    div.title-container
+      p(@click="toIndex").cancel 取消
+      p.title 我的卡片
+      p.save 保存
 
-  // 展示中的卡片
-  div.show
-    div.small-title
-      p 已添加
-
-    div.single(v-for="(item, index) in selectedCards" :key="index" v-if="selectedCards.length !== 0")
-      div.small-card
-        img.select(src="__IMAGE__/icon/delete.png"
+    // 展示中的卡片
+    div.show(v-if="selectedCards.length !== 0")
+      div.small-title
+        p 已添加
+      div.single(v-for="(item, index) in selectedCards" :key="index")
+        div.small-card
+          img.select(src="__IMAGE__/icon/delete.png"
           @click="deleteCard(index)")
-        p {{item.name}}
-      div.img-container
-        img(src="__IMAGE__/icon/arrow@up.png"
+          p {{item.name}}
+        div.img-container
+          img(src="__IMAGE__/icon/arrow@up.png"
           @click="up(index)")
-        img.down(src="__IMAGE__/icon/arrow@up.png"
+          img.down(src="__IMAGE__/icon/arrow@up.png"
           @click="down(index)")
-    div.no-more(v-if="selectedCards.length === 0")
-      p 暂 无 更 多 卡 片
-  // 未展示的卡片
-  div.no-show
-    div.small-title
-      p 待添加
-    div.single(v-for="(item, index) in noSelectedCards" :key="index" v-if="noSelectedCards.length !== 0")
-      div.small-card
-        p {{item.name}}
-        img(src="__IMAGE__/icon/add@card.png"
+
+    // 未展示的卡片
+    div.no-show(v-if="noSelectedCards.length !== 0")
+      div.small-title
+        p 待添加
+      div.single(v-for="(item, index) in noSelectedCards" :key="index")
+        div.small-card
+          p {{item.name}}
+          img(src="__IMAGE__/icon/add@card.png"
           @click="addCard(index)")
-    div.no-more(v-if="noSelectedCards.length === 0")
-      p 暂 无 更 多 卡 片
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex'
-import {toast} from '../../utils/utils'
+  import {mapGetters, mapActions} from 'vuex'
+  import {toast} from '../utils/utils'
 
-export default {
-  methods: {
-    toIndex () {
-      wx.navigateBack()
+  export default {
+    methods: {
+      toIndex () {
+        this.$emit('toIndex')
+      },
+      up (index) {
+        if (index === 0) {
+          toast('无法上升', this.$config.iconType.FAIL)
+          return
+        }
+        this.upCard(index)
+        toast('上升成功', this.$config.iconType.SUCCESS)
+      },
+      down (index) {
+        if (index === this.selectedCards.length - 1) {
+          toast('无法下降', this.$config.iconType.FAIL)
+          return
+        }
+        this.downCard(index)
+        toast('下降成功', this.$config.iconType.SUCCESS)
+      },
+      ...mapActions([
+        'upCard',
+        'downCard',
+        'deleteCard',
+        'addCard'
+      ])
     },
-    up (index) {
-      if (index === 0) {
-        toast('无法上升', this.$config.iconType.FAIL)
-        return
-      }
-      this.upCard(index)
-    },
-    down (index) {
-      if (index === this.selectedCards.length - 1) {
-        toast('无法下降', this.$config.iconType.FAIL)
-        return
-      }
-      this.downCard(index)
-    },
-    ...mapActions([
-      'upCard',
-      'downCard',
-      'deleteCard',
-      'addCard'
-    ])
-  },
-  computed: {
-    ...mapGetters([
-      'selectedCards',
-      'noSelectedCards'
-    ])
+    computed: {
+      ...mapGetters([
+        'selectedCards',
+        'noSelectedCards'
+      ])
+    }
   }
-}
 </script>
 
 <style scoped lang="sass">
@@ -179,5 +177,4 @@ export default {
     font-size: $normal-font-size
     margin-top: 30rpx
     color: $grey
-  .de
 </style>
