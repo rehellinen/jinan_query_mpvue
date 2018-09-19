@@ -18,7 +18,7 @@ function toast (title, icon = iconType.SUCCESS) {
       title,
       image: icon,
       success: (res) => {
-       resolve(res)
+        resolve(res)
       }
     })
   })
@@ -69,7 +69,7 @@ function share (title, path) {
  * @param type UP代表前进，DOWN代表后退
  * @return {*}
  */
-function order (index, arr, type) {
+function order (index, arr, type = orderType.UP) {
   let upValue = arr[index]
   if (index > arr.length - 1 || index < 0) {
     return
@@ -82,7 +82,7 @@ function order (index, arr, type) {
     arr.splice(index, 1)
     arr.splice(index - 1, 0, upValue)
   } else {
-    if (index  > arr.length - 2) {
+    if (index > arr.length - 2) {
       return
     }
     arr.splice(index, 1)
@@ -90,4 +90,4 @@ function order (index, arr, type) {
   }
 }
 
-export {copyObjArr, toast, modal, share}
+export {copyObjArr, toast, modal, share, order}

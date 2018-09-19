@@ -13,7 +13,8 @@ div.container.card-container
 
     div.single(v-for="(item, index) in selectedCards" :key="index" v-if="selectedCards.length !== 0")
       div.small-card
-        img.select(src="__IMAGE__/icon/delete.png")
+        img.select(src="__IMAGE__/icon/delete.png"
+          @click="deleteCard(index)")
         p {{item.name}}
       div.img-container
         img(src="__IMAGE__/icon/arrow@up.png"
@@ -35,17 +36,33 @@ div.container.card-container
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
+import {toast} from '../../utils/utils'
+
 export default {
   methods: {
     toIndex () {
       wx.navigateBack()
     },
     up (index) {
-
+      if (index === 0) {
+        toast('无法上升', this.$config.iconType.FAIL)
+        return
+      }
+      this.upCard(index)
     },
     down (index) {
-    }
+      if (index === this.selectedCards.length - 1) {
+        toast('无法下降', this.$config.iconType.FAIL)
+        return
+      }
+      this.downCard(index)
+    },
+    ...mapActions([
+      'upCard',
+      'downCard',
+      'deleteCard'
+    ])
   },
   computed: {
     ...mapGetters([

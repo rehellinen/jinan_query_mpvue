@@ -15,6 +15,10 @@ export class CardModel {
     return wx.getStorageSync(this._storageKey)
   }
 
+  saveStorage (data) {
+    wx.getStorageSync(this._storageKey, data)
+  }
+
   /**
    * 初始化缓存中卡片的数据
    */
