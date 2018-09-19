@@ -30,7 +30,8 @@ div.container.card-container
     div.single(v-for="(item, index) in noSelectedCards" :key="index" v-if="noSelectedCards.length !== 0")
       div.small-card
         p {{item.name}}
-        img(src="__IMAGE__/icon/add@card.png")
+        img(src="__IMAGE__/icon/add@card.png"
+          @click="addCard(index)")
     div.no-more(v-if="noSelectedCards.length === 0")
       p 暂 无 更 多 卡 片
 </template>
@@ -61,7 +62,8 @@ export default {
     ...mapActions([
       'upCard',
       'downCard',
-      'deleteCard'
+      'deleteCard',
+      'addCard'
     ])
   },
   computed: {
