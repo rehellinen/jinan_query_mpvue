@@ -10,29 +10,28 @@ div.container.card-container
   div.show
     div.small-title
       p 已添加
-    div.single
-      div.small-card
-        img.select(src="__IMAGE__/icon/delete.png")
-        p 电 费 查 询
-      div.img-container
-        img(src="__IMAGE__/icon/arrow@up.png")
-        img.down(src="__IMAGE__/icon/arrow@up.png")
-    div.single
-      div.small-card
-        img.select(src="__IMAGE__/icon/delete.png")
-        p 电 费 查 询
-      div.img-container
-        img(src="__IMAGE__/icon/arrow@up.png")
-        img.down(src="__IMAGE__/icon/arrow@up.png")
 
+    div.single(v-for="(item, index) in selectedCards" :key="index" v-if="selectedCards.length !== 0")
+      div.small-card
+        img.select(src="__IMAGE__/icon/delete.png")
+        p {{item.name}}
+      div.img-container
+        img(src="__IMAGE__/icon/arrow@up.png"
+          @click="up(index)")
+        img.down(src="__IMAGE__/icon/arrow@up.png"
+          @click="down(index)")
+    div.no-more(v-if="selectedCards.length === 0")
+      p 暂 无 更 多 卡 片
   // 未展示的卡片
   div.no-show
     div.small-title
       p 待添加
-    div.single
+    div.single(v-for="(item, index) in noSelectedCards" :key="index" v-if="noSelectedCards.length !== 0")
       div.small-card
-        p 电 费 查 询
+        p {{item.name}}
         img(src="__IMAGE__/icon/add@card.png")
+    div.no-more(v-if="noSelectedCards.length === 0")
+      p 暂 无 更 多 卡 片
 </template>
 
 <script>
@@ -41,11 +40,17 @@ export default {
   methods: {
     toIndex () {
       wx.navigateBack()
+    },
+    up (index) {
+
+    },
+    down (index) {
     }
   },
   computed: {
     ...mapGetters([
-      'cardState'
+      'selectedCards',
+      'noSelectedCards'
     ])
   }
 }
@@ -150,5 +155,10 @@ export default {
         width: 40rpx
         height: 40rpx
         margin-right: 30rpx
+  .no-more
+    text-align: center
+    font-size: $normal-font-size
+    margin-top: 30rpx
+    color: $grey
   .de
 </style>

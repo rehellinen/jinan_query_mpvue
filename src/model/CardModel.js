@@ -23,20 +23,24 @@ export class CardModel {
     if (card.electricity) {
       return
     }
-    const data = {
-      electricity: {
-        order: 1,
+    const data = [
+      {
+        name: '电 费 查 询',
         isShow: true
       },
-      class: {
-        order: 1,
+      {
+        name: '我 的 课 表',
         isShow: true
       },
-      score: {
-        order: 1,
+      {
+        name: '我 的 成 绩',
+        isShow: true
+      },
+      {
+        name: '我 的 考 试 表',
         isShow: true
       }
-    }
+    ]
     wx.setStorageSync(this._storageKey, data)
   }
 }
