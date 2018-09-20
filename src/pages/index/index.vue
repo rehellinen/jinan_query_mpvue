@@ -24,9 +24,12 @@
     // 卡片
     div.card-container
       div(v-for="(item, index) in selectedCards" :key="index")
-      score
-      electricity
-      class
+        div(v-if="cardNames.ELECTRICITY === item.name")
+          electricity
+        div(v-if="cardNames.SCORE === item.name")
+          score
+        div(v-if="cardNames.CLASS_TABLE === item.name")
+          class
     div.add-container(@click="toEdit")
       div.icon-container
         img(src="__IMAGE__/icon/add.png")
@@ -40,6 +43,11 @@ import Score from 'components/score'
 import {mapGetters} from 'vuex'
 
 export default {
+  data () {
+    return {
+      cardNames: this.$config.cardNames
+    }
+  },
   methods: {
     toEdit () {
       wx.navigateTo({
