@@ -30,12 +30,17 @@ export class CardModel {
       return
     }
 
+    let data = CardModel.initialData()
+
+    wx.setStorageSync(this._storageKey, data)
+  }
+
+  static initialData () {
     let data = []
     for (let key in config.cardNames) {
       let newCards = {name: config.cardNames[key], isShow: true}
       data.push(newCards)
     }
-
-    wx.setStorageSync(this._storageKey, data)
+    return data
   }
 }

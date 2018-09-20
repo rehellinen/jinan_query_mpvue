@@ -8,7 +8,7 @@ import {CardModel} from '../model/CardModel'
 let Cart = new CardModel()
 
 const state = {
-  card: Cart.getStorage()
+  card: Cart.getStorage() || CardModel.initialData()
 }
 
 export {state}
