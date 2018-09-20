@@ -23,6 +23,7 @@
         p 个人资料
     // 卡片
     div.card-container
+      div(v-for="(item, index) in selectedCards" :key="index")
       score
       electricity
       class
@@ -36,6 +37,7 @@
 import Electricity from 'components/electricity'
 import Class from 'components/class'
 import Score from 'components/score'
+import {mapGetters} from 'vuex'
 
 export default {
   methods: {
@@ -44,6 +46,11 @@ export default {
         url: '../edit/main'
       })
     }
+  },
+  computed: {
+    ...mapGetters([
+      'selectedCards'
+    ])
   },
   components: {
     Electricity,

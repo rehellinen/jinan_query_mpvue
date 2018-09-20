@@ -20,6 +20,14 @@ const config = {
   orderType: {
     UP: 'UP',
     DOWN: 'DOWN'
+  },
+
+  // 配置5：关于卡片名称
+  cardNames: {
+    ELECTRICITY: '电 费 查 询',
+    CLASS_TABLE: '我 的 课 表',
+    SCORE: '我 的 成 绩',
+    EXAM_TABLE: '我 的 考 试 表'
   }
 }
 

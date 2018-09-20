@@ -3,6 +3,8 @@
  *  Create By rehellinen
  *  Create On 2018/9/17 20:28
  */
+import {config} from '../utils/config'
+
 export class CardModel {
   constructor () {
     this._storageKey = 'CARD'
@@ -24,27 +26,16 @@ export class CardModel {
    */
   initialize () {
     let card = wx.getStorageSync(this._storageKey)
-    if (card.electricity) {
+    if (card.length !== 0) {
       return
     }
-    const data = [
-      {
-        name: '电 费 查 询',
-        isShow: true
-      },
-      {
-        name: '我 的 课 表',
-        isShow: true
-      },
-      {
-        name: '我 的 成 绩',
-        isShow: true
-      },
-      {
-        name: '我 的 考 试 表',
-        isShow: true
-      }
-    ]
+
+    let data = []
+    for (let key in config.cardNames) {
+      let newCards = {name: config.cardNames[key], isShow: true}
+      data.push(newCards)
+    }
+
     wx.setStorageSync(this._storageKey, data)
   }
 }
