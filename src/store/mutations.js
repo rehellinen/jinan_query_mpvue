@@ -13,6 +13,7 @@ export const mutations = {
     state.card = data
   },
   [types.SAVE_TO_STORAGE] (state) {
+    console.log(state.card)
     Cart.saveStorage(state.card)
   }
 }

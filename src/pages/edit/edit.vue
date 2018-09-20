@@ -4,7 +4,7 @@
     div.title-container
       p(@click="toIndex").cancel 取消
       p.title 我的卡片
-      p.save 保存
+      p.save(@click="saveCards") 保存
 
     // 展示中的卡片
     div.show(v-if="selectedCards.length !== 0")
@@ -37,8 +37,19 @@
   import {toast} from '../../utils/utils'
 
   export default {
+    onHide () {
+      this.recovery()
+    },
+    onUnload () {
+      this.recovery()
+    },
     methods: {
+      saveCards () {
+        this.saveToStorage()
+        toast('保存成功', this.$config.iconType.SUCCESS)
+      },
       toIndex () {
+        this.recovery()
         wx.navigateBack()
       },
       up (index) {
@@ -61,7 +72,9 @@
         'upCard',
         'downCard',
         'deleteCard',
-        'addCard'
+        'addCard',
+        'recovery',
+        'saveToStorage'
       ])
     },
     computed: {

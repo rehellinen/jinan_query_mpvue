@@ -6,6 +6,9 @@
 import {types} from './mutation-types'
 import {copyObjArr, order} from '../utils/utils'
 import {config} from '../utils/config'
+import {CardModel} from '../model/CardModel'
+
+let Card = new CardModel()
 
 function findIndex (name, state) {
   let index = -1
@@ -41,6 +44,13 @@ const actions = {
     let i = findIndex(getters.noSelectedCards[index].name, state)
     newData[i].isShow = true
     commit(types.SAVE_TO_STORE, newData)
+  },
+  recovery ({commit}) {
+    let data = Card.getStorage()
+    commit(types.SAVE_TO_STORE, data)
+  },
+  saveToStorage ({commit}) {
+    commit(types.SAVE_TO_STORAGE)
   }
 }
 

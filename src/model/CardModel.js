@@ -16,7 +16,7 @@ export class CardModel {
   }
 
   saveStorage (data) {
-    wx.getStorageSync(this._storageKey, data)
+    wx.setStorageSync(this._storageKey, data)
   }
 
   /**
